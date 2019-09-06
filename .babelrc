@@ -1,0 +1,10 @@
+// {
+//   "presets": ["@babel/preset-env","@babel/preset-react"],
+//   "plugins": ["@babel/plugin-transform-runtime"]
+// }
+{
+  "presets": [
+      "env",
+      "react", "stage-0"
+  ]
+}   // 从右向左解析

@@ -80,7 +80,7 @@ class MobileHeader extends React.Component {
 	};
 
 	render() {
-		let {getFieldProps} = this.props.form;
+		let {getFieldDecorator} = this.props.form;
 		const userShow = this.state.hasLogined ?
 		<Link>
 			<Icon type="inbox"/>
@@ -101,10 +101,10 @@ class MobileHeader extends React.Component {
 					<TabPane tab="登录" key="1">
 						<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 							<FormItem label="账户">
-								<Input placeholder="请输入您的账号" {...getFieldProps('userName')}/>
+								<Input placeholder="请输入您的账号" {...getFieldDecorator('userName')}/>
 							</FormItem>
 							<FormItem label="密码">
-								<Input type="password" placeholder="请输入您的密码" {...getFieldProps('password')}/>
+								<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('password')}/>
 							</FormItem>
 							<Button type="primary" htmlType="submit">登录</Button>
 						</Form>
@@ -112,13 +112,13 @@ class MobileHeader extends React.Component {
 						<TabPane tab="注册" key="2">
 							<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 								<FormItem label="账户">
-									<Input placeholder="请输入您的账号" {...getFieldProps('r_userName')}/>
+									<Input placeholder="请输入您的账号" {...getFieldDecorator('r_userName')}/>
 								</FormItem>
 								<FormItem label="密码">
-									<Input type="password" placeholder="请输入您的密码" {...getFieldProps('r_password')}/>
+									<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('r_password')}/>
 								</FormItem>
 								<FormItem label="确认密码">
-									<Input type="password" placeholder="请再次输入您的密码" {...getFieldProps('r_confirmPassword')}/>
+									<Input type="password" placeholder="请再次输入您的密码" {...getFieldDecorator('r_confirmPassword')}/>
 								</FormItem>
 								<Button type="primary" htmlType="submit" >注册</Button>
 							</Form>
