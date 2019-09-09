@@ -4,9 +4,9 @@ const path = require("path");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
 // 拆分css样式的插件
 let ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
-let CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-  entry: "./src/js/root.js",
+  entry: "./src/index.js",
   // module: {
   //   rules: [
   //     {
@@ -29,7 +29,7 @@ module.exports = {
   },
   plugins: [
       // 打包前先清空
-      // new CleanWebpackPlugin('dist')  ,
+      new CleanWebpackPlugin()  ,
         // 热更新，热更新不是刷新
       new webpack.HotModuleReplacementPlugin(),
 
@@ -61,9 +61,13 @@ module.exports = {
                     ]
                 */
       }, {
-        test:/\.js$/,
-        use: 'babel-loader',
-        include: /src/,          // 只转化src目录下的js
+        test:/\.jsx?$/,
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ],
+        // include: /src/,          // 只转化src目录下的js
         exclude: /node_modules/  // 排除掉node_modules，优化打包速度
     },
       {
@@ -90,9 +94,9 @@ module.exports = {
   },
   resolve: {
     // 别名
-    alias: {
-        $: './src/jquery.js'
-    },
+    // alias: {
+    //     $: './src/jquery.js'
+    // },
     // 省略后缀
     extensions: ['.js', '.json', '.css']
 },
@@ -100,7 +104,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     host: 'localhost',      // 默认是localhost
-    port: 3000,             // 端口
+    port: 3298,             // 端口
     open: true,             // 自动打开浏览器
     hot: true               // 开启热更新
 }

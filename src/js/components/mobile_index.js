@@ -4,9 +4,9 @@ import MobileFooter from './mobile_footer';
 export default class MobileIndex extends React.Component {
 	render() {
 		return (
-			<div>
-				<MobileHeader></MobileHeader>
-				<MobileFooter></MobileFooter>
+			<div>1111
+				{/* <MobileHeader></MobileHeader> */}
+				{/* <MobileFooter></MobileFooter> */}
 			</div>
 		);
 	};
