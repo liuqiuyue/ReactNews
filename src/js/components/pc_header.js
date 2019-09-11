@@ -89,12 +89,12 @@ class PCHeader extends React.Component {
 		this.setState({hasLogined:false});
 	};
 	render() {
-		let {getFieldDecorator} = this.props.form;
+		let {getFieldProps} = this.props.form;
 		const userShow = this.state.hasLogined
 			? <Menu.Item key="logout" class="register">
 					<Button type="primary" htmlType="button">{this.state.userNickName}</Button>
 					&nbsp;&nbsp;
-					<Link target="_blank">
+					<Link target="_blank" to={`/usercenter`}>
 						<Button type="dashed" htmlType="button">个人中心</Button>
 					</Link>
 					&nbsp;&nbsp;
@@ -146,10 +146,10 @@ class PCHeader extends React.Component {
 								<TabPane tab="登录" key="1">
 									<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 										<FormItem label="账户">
-											<Input placeholder="请输入您的账号" {...getFieldDecorator('userName')}/>
+											<Input placeholder="请输入您的账号" {...getFieldProps('userName')}/>
 										</FormItem>
 										<FormItem label="密码">
-											<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('password')}/>
+											<Input type="password" placeholder="请输入您的密码" {...getFieldProps('password')}/>
 										</FormItem>
 										<Button type="primary" htmlType="submit">登录</Button>
 									</Form>
@@ -157,13 +157,13 @@ class PCHeader extends React.Component {
 								<TabPane tab="注册" key="2">
 									<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
 										<FormItem label="账户">
-											<Input placeholder="请输入您的账号" {...getFieldDecorator('r_userName')}/>
+											<Input placeholder="请输入您的账号" {...getFieldProps('r_userName')}/>
 										</FormItem>
 										<FormItem label="密码">
-											<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('r_password')}/>
+											<Input type="password" placeholder="请输入您的密码" {...getFieldProps('r_password')}/>
 										</FormItem>
 										<FormItem label="确认密码">
-											<Input type="password" placeholder="请再次输入您的密码" {...getFieldDecorator('r_confirmPassword')}/>
+											<Input type="password" placeholder="请再次输入您的密码" {...getFieldProps('r_confirmPassword')}/>
 										</FormItem>
 										<Button type="primary" htmlType="submit">注册</Button>
 									</Form>

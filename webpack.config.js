@@ -64,7 +64,7 @@ module.exports = {
         test:/\.jsx?$/,
         use: [
           {
-            loader: "babel-loader"
+            loader: "babel-loader" 
           }
         ],
         // include: /src/,          // 只转化src目录下的js
